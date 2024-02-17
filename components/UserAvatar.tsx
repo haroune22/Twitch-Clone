@@ -24,7 +24,7 @@ const avatarSizes = cva(
 interface UserAvatarProps extends VariantProps<typeof avatarSizes>{
     imageUrl:string,
     username:string,
-    isLive:boolean,
+    isLive?:boolean,
     showBadge?:boolean;
 }
 
