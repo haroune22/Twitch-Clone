@@ -11,6 +11,7 @@ export const useViewerToken = (hostIdentity: string) => {
 
   useEffect(() => {
     const createToken = async () => {
+      
       try {
         const viewerToken = await createViewerToken(hostIdentity);
         setToken(viewerToken);
