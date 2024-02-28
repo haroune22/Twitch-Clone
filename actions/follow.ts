@@ -21,7 +21,7 @@ export const onFollow =async (id:string) => {
     }
 
 }
-export const onUnFollow =async (id:string) => {
+export const onUnfollow =async (id:string) => {
 
     try {
         const unfollowedUser = await unfollowUser(id)
