@@ -9,13 +9,19 @@ import { cn } from "@/lib/utils"
 import { Chat, ChatSkeleton } from "./Chat"
 import { ChatToggle } from "./ChatToggle "
 import { Header, HeaderSkeleton } from "./Header"
+import { InfoCard } from "./InfoCard"
+import { AboutCard } from "./AboutCard"
 
 
 interface StremPlayerProps {
-    user:User,
+    user:User & {
+      stream:Stream | null,
+      _count:{ followedBy:number}
+    },
     stream:Stream,
     isFollowing:boolean,
 }
+
 export const StraemPlayer = ({
     user,
     stream,
@@ -67,6 +73,19 @@ export const StraemPlayer = ({
             imageUrl={user.imageUrl}
             isFollowing={isFollowing}
             name={stream.name}
+          />
+          <InfoCard
+            hostIdentity={user.id}
+            viewerIdentity={identity}
+            name={stream.name}
+            thumbnailUrl={stream.thumbnailUrl}
+          />
+          <AboutCard
+             hostName={user.username}
+             hostIdentity={user.id}
+             viewerIdentity={identity}
+             bio={user.bio}
+             followedByCount={user._count.followedBy}
           />
         </div>
         <div className={cn(
