@@ -13,7 +13,7 @@ import { LiveBadge } from "@/components/LiveBadge";
 interface UserItemProps {
   username: string;
   imageUrl: string;
-  isLive?:boolean;
+  isLive?: boolean;
 };
 
 export const UserItem = ({
@@ -43,33 +43,32 @@ export const UserItem = ({
           "flex items-center w-full gap-x-4",
           collapsed && "justify-center",
         )}>
-        <UserAvatar
+          <UserAvatar
             imageUrl={imageUrl}
             username={username}
             isLive={isLive}
-            
-        />
+          />
           {!collapsed && (
             <p className="truncate">
               {username}
             </p>
           )}
           {!collapsed && isLive && (
-            <LiveBadge className="ml-auto"/>
+            <LiveBadge className="ml-auto" />
           )}
         </div>
       </Link>
     </Button>
-  )
-}
+  );
+};
 
 export const UserItemSkeleton = () => {
-    return (
-      <li className="flex items-center gap-x-4 px-3 py-2">
-        <Skeleton className="min-h-[32px] min-w-[32px] rounded-full" />
-        <div className="flex-1">
-          <Skeleton className="h-6" />
-        </div>
-      </li>
-    );
-  };
+  return (
+    <li className="flex items-center gap-x-4 px-3 py-2">
+      <Skeleton className="min-h-[32px] min-w-[32px] rounded-full" />
+      <div className="flex-1">
+        <Skeleton className="h-6" />
+      </div>
+    </li>
+  );
+};

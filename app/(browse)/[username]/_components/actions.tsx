@@ -1,8 +1,8 @@
 "use client";
 
 
-import { onBlock, onUnBlock } from "@/actions/block";
-import { onFollow, onUnFollow } from "@/actions/follow";
+import { onBlock, onUnblock } from "@/actions/block";
+import { onFollow, onUnfollow } from "@/actions/follow";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
 import { toast } from "sonner";
@@ -28,7 +28,7 @@ export const Actions = ({isFollowing,userId}:ActionsProps) => {
 
     const handleUnFollow = ()=>{
         startTransition(()=> {
-            onUnFollow(userId)
+            onUnfollow(userId)
             .then((data)=>toast.success(`you Unfollowed ${data.following.username}`))
             .catch(()=>toast.error('Somthing Went wrong'))
         })
@@ -44,7 +44,7 @@ export const Actions = ({isFollowing,userId}:ActionsProps) => {
 
     const handleBlock = () => {
         startTransition(()=> {
-            onUnBlock(userId)
+            onUnblock(userId)
             .then((data)=>toast.success(`you Blocked ${data.blocked.username}`))
             .catch(()=>toast.error('Somthing Went wrong'))
         })
