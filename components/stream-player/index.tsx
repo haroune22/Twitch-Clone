@@ -12,17 +12,32 @@ import { Header, HeaderSkeleton } from "./Header"
 import { InfoCard } from "./InfoCard"
 import { AboutCard } from "./AboutCard"
 
+type CustomStream = {
+  id: string;
+  isChatEnabled: boolean;
+  isChatDelayed: boolean;
+  isChatFollowersOnly: boolean;
+  isLive: boolean;
+  thumbnailUrl: string | null;
+  name: string;
+};
+
+type CustomUser = {
+  id: string;
+  username: string;
+  bio: string | null;
+  stream: CustomStream | null;
+  imageUrl: string;
+  _count: { followedBy: number }
+};
 
 interface StremPlayerProps {
-    user:User & {
-      stream:Stream | null,
-      _count:{ followedBy:number}
-    },
-    stream:Stream,
+    user:CustomUser ,
+    stream:CustomStream,
     isFollowing:boolean,
 }
 
-export const StraemPlayer = ({
+export const StreamPlayer = ({
     user,
     stream,
     isFollowing

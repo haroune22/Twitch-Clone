@@ -1,10 +1,9 @@
 import { isFollowingUser } from '@/lib/follow-service'
 import { getUserByUsername } from '@/lib/user-service'
 import { notFound } from 'next/navigation'
-import React from 'react'
-import { Actions } from './_components/actions'
+
 import { isBlockedByUser } from '@/lib/block-service'
-import { StraemPlayer } from '@/components/stream-player'
+import { StreamPlayer } from '@/components/stream-player'
 
 
 interface UserPageProps {
@@ -31,7 +30,7 @@ const UserPage = async ({params}:UserPageProps) => {
 
   return (
     <>
-      <StraemPlayer 
+      <StreamPlayer 
         user={user}
         stream={user.stream}
         isFollowing={isFollowing}

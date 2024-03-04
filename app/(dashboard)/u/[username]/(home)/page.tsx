@@ -1,4 +1,4 @@
-import { StraemPlayer } from "@/components/stream-player"
+import { StreamPlayer } from "@/components/stream-player"
 import { getUserByUsername } from "@/lib/user-service"
 import { currentUser } from "@clerk/nextjs"
 
@@ -21,7 +21,7 @@ const CreatorPage = async({
 
   return (
     <div className="h-full">
-      <StraemPlayer
+      <StreamPlayer
         user={user}
         stream={user.stream}
         isFollowing

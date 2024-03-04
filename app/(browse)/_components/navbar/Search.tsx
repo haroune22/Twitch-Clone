@@ -58,4 +58,4 @@ export const Search = () => {
         </Button>
     </form>
   )
-}
+};
